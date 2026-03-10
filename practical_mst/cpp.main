@@ -1,0 +1,19 @@
+class Solution {
+  public:
+    vector<int> maxOfSubarrays(vector<int>& arr, int k) {
+        // code here
+        vector<int> result;
+        int n = arr.size();
+        for(int i = 0; i <= n - k; i++)
+        {
+            int maximum = arr[i];
+            for(int j = i; j < i + k; j++)
+            {
+                if(arr[j] > maximum)
+                    maximum = arr[j];
+            }
+            result.push_back(maximum);
+        }
+        return result;
+    }
+};
